@@ -1,0 +1,40 @@
+<!-- 如果使用了 路由 当前页面默认归属路由对应的控制器管理 在页面就可以不指定控制器-->
+<section class="todoapp">
+        <header class="header">
+            <h1>todos</h1>
+            <form ng-submit="add()">
+                <input class="new-todo" placeholder="What needs to be done?" autofocus ng-model="addName">
+            </form>
+        </header>
+        <section class="main">
+            <input class="toggle-all" type="checkbox" ng-click="selectAll()" ng-model="isSelectAll">
+            <label for="toggle-all">Mark all as complete</label>
+            <ul class="todo-list">
+                <li ng-class="{'completed':value.isCompleted,'editing':value.isUpdate}" ng-repeat="value in todoList | filter:status track by $index">
+                    <div class="view">
+                        <input class="toggle" type="checkbox" checked ng-model="value.isCompleted">
+                        <label ng-dblclick="update()">{{value.name}}</label>
+                        <button class="destroy" ng-click="remove(value.id)"></button>
+                    </div>
+                    <form ng-submit="save()">
+                        <input class="edit" value="Create a TodoMVC template" ng-model="value.name">
+                    </form>
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <span class="todo-count"><strong ng-bind="count"></strong> item left</span>
+            <ul class="filters">
+                <li>
+                    <a ng-class="{'selected':isSelected=='all'}" href="#/">All</a>
+                </li>
+                <li>
+                    <a ng-class="{'selected':isSelected=='active'}" href="#/active">Active</a>
+                </li>
+                <li>
+                    <a ng-class="{'selected':isSelected=='completed'}" href="#/completed">Completed</a>
+                </li>
+            </ul>
+            <button class="clear-completed" ng-click="clear()">Clear completed</button>
+        </footer>
+    </section>

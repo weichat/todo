@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template • TodoMVC</title>
+    <link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+    <link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+</head>
+<!-- 使用模块和控制器 -->
+<!-- 如果使用了 路由 ng-controller可以不写 -->
+<body ng-app="todoApp" ng-controller="todoCtrl">
+    <!-- 6.在页面上添加一个ng-view -->
+    <section ng-view></section>
+    <footer class="info">
+        <p>Double-click to edit a todo</p>
+        <p>Created by <a href="http://todomvc.com">itcast</a></p>
+        <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+    </footer>
+    <!-- 1. 引包 -->
+    <script src="node_modules/angular/angular.js"></script>
+    <!-- 2.引入路由包 -->
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <!-- 2.引入主的JS文件 -->
+    <script src="js/app.js"></script>
+    <!-- 3.引入控制器文件 -->
+    <script src="js/controller.js"></script>
+    <!-- 4.引入服务器文件 -->
+    <script src="js/service.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

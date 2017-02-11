@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script>
+    // var obj1 = {
+    //     name: 'zhangsan'
+    // };
+    // var obj2 = obj1;
+    // obj2.name = "lisi";
+    // console.log(obj1.name);
+    var obj = {
+        name: '张三'
+    };
+
+    function fun() {
+        return obj;
+    }
+    var obj3 = fun();
+    obj3.name = '李四';
+    console.log(obj);
+    </script>
+</body>
+
+</html>

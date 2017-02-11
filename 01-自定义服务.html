@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<!-- 2.在页面上指定一个ng-app 表示body里面的内容属于angular的管辖范围-->
+<!-- 3.在页面中通过ng-controller指令指定创建的控制器名 指定哪个angular的控制器来管理页面(其实所谓的管理页面就是给页面提供数据和行为) -->
+
+<body ng-app="myApp" ng-controller="testController">
+    <div ng-controller="testController2"></div>
+    {{name}}
+    <!-- 1.引入angular js文件 -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('testController', ['$scope', '$log', '$dabaojian', function($scope, $log, $dabaojian) {
+        // $log.log('这是系统服务');
+        dabaojian.tui('李飞')
+    }]);
+    app.controller('testController2', ['$scope', '$log', '$dabaojian', function($scope, $log, $dabaojian) {
+        // $log.log('这是系统服务');
+        dabaojian.tui('唐玉宁')
+    }]);
+    //在angular代码里面的服务 就是提供一些大家都会用到的方法
+    // 服务里面的代码默认是不会执行 需要调用才会执行服务 而且只会执行一次  即使多个控制器里面调用了服务 也只执行一次 缓存
+    app.service('$dabaojian', function($log) {
+        console.log(this);
+        //服务里面的定义一个推的方法
+        this.tui = function(name) {
+            $log.log('你正在推' + name);
+        }
+        console.log('服务执行了');
+        // var dbj = {};
+        // dbj.add = function () {
+        // 	console.log('大保健的add方法');
+        // }
+        // return dbj;
+    });
+    //自定义服务的步骤
+    // 1. 创建一个服务 模块名.service('$服务名', 服务的回调函数(参数不能写$scope));
+    // 2. 在服务里面去爆露一些大家都会用到的方法 爆露的方式 一般写在this
+    // 3. 使用一个服务 直接在控制器里面的参数里面加创建好的服务名
+    // 4. 调用服务的方法实现功能 服务名.方法名()
+    </script>
+</body>
+
+</html>
